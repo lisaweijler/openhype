@@ -1,0 +1,57 @@
+execute:
+   - openhype_preprocess
+   - openhype_ae
+   - openhype_nerf
+
+general:
+   img_dir: path to your processed data dir/scene_id/images # adapt
+
+openhype_preprocess:
+   stage: 1
+   img_seg_model_config:
+      model_type: semantic_sam
+      sam_model_type: L 
+      sam_model_ckpt: path to your sam model dir/swinl_only_sam_many2many.pth # adapt
+      sam_kwargs:
+         level: [6, 5, 4, 3, 2, 1]
+      env_dir: path to your semantic-sam conda env # adapt
+   crop_enc_model_config:
+      clip_model_type: ViT-B-16
+      clip_model_pretrained: laion2b_s34b_b88k
+   
+   
+
+openhype_ae:
+   stage: 2
+   experiment_name: scannetpp
+   epochs: 1000
+   checkpoint_frequency: 200
+   batch_size: 10
+   weight_decay: 0.0001
+   max_lr : 0.002
+   pct_start : 0.05
+   div_factor : 10.0
+   final_div_factor : 1000.0
+   model_config:
+      input_dim: 512
+      normalize_input_feats: True
+      normalize_output_feats: True
+   cache_feature_embeds: True
+
+
+
+openhype_nerf:
+   stage: 3
+   env_dir: path to your openhype conda env # adapt
+   time_stamp: run0
+   latent_eucl_feature_dir: to_be_set # set automatically
+   ae_ckpt_path: to_be_set # set automatically
+   experiment_name: scannetpp
+   lang_field_dim: 32
+   eval_mode: filename
+   loss: "Hyperbolic_geodesic_regularized" 
+
+      
+
+
+   

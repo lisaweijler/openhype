@@ -1,0 +1,22 @@
+eval_configs:
+    - ae_ckpt_path: "" # is set automatically
+      output_dir: "" # is set based on flag of commandline input
+      img_dir: dir to you processed data/ # adapt,the part of: scene_id/images is added automatically
+      gt_path: dir to your folder where the annotations are saved/openhype_scannetpp_benchmark/ # adapt, the part of: scene_id is added automatically
+      nerf_config_path: "" # is set automatically
+      interpolation_steps: 20
+      aggregation: softmax_weighted
+      mask_thresh: 0.4
+      verbose_visualization: False
+
+      hyperembedder_config:
+        input_dim: 512
+        normalize_input_feats: True
+        normalize_output_feats: True
+
+      text_embedder_config:
+        model_source: open_clip 
+        model_name: ViT-B-16
+        pretrained: laion2b_s34b_b88k
+
+    

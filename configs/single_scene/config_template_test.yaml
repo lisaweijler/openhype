@@ -1,0 +1,22 @@
+eval_configs:
+    - ae_ckpt_path: pipeline_output_dir/scene_id/2_openhype_ae/ViT-B-16_laion2b_s34b_b88k/time_stamp/ckpts/model_best.pth # adapt to where you saved the pipeline output
+      output_dir: openhype_output/scannetpp/scene_id/experiment_name/eval_output_2D_run1 # adapt if you want another test output dir
+      img_dir: dir to you processed data/scene_id/images # adapt
+      gt_path: dir to your folder where the annotations are saved/openhype_scannetpp_benchmark/scene_id # adapt 
+      nerf_config_path: pipeline_output_dir/scene_id/3_openhype_nerf/scannetpp/openhype/run0/config.yml # adapt to where you saved the pipeline output
+      interpolation_steps: 20
+      aggregation: softmax_weighted
+      mask_thresh: 0.4
+      verbose_visualization: False
+
+      hyperembedder_config:
+        input_dim: 512
+        normalize_input_feats: True
+        normalize_output_feats: True
+
+      text_embedder_config:
+        model_source: open_clip 
+        model_name: ViT-B-16
+        pretrained: laion2b_s34b_b88k
+
+    

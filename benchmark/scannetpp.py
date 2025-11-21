@@ -1,0 +1,23 @@
+# List of ScanNet++ scene IDs used in the OpenHype experiments
+scenes = [
+    "7b6477cb95",
+    "cc5237fd77",
+    "c50d2d1d42",
+    "a24f64f7fb",
+    "3e8bba0176",
+    "5ee7c22ba0",
+    "a8bf42d646",
+    "45b0dac5e3",
+    "25f3b7a318",
+    "3db0a1c8f3",
+    "578511c8a9",
+    "6115eddb86",
+    "5942004064",
+    "acd95847c5",
+    "3864514494",
+    "f3685d06a9",
+    "286b55a2bf",
+    "f9f95681fd",
+    "27dd4da69e",
+    # "5f99900f09",
+]

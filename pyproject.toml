@@ -1,0 +1,20 @@
+[project]
+name = "openhype"
+description = "Hierarchical open-vocabulary scene understanding using hyperbolic spaces and NeRF."
+version = "0.1.0"
+
+dependencies = [
+    "tyro<0.8.15",
+    "numpy<2.0",
+    "open_clip_torch==2.29.0",
+    "nerfstudio==1.1.5",
+    "einops==0.8.0",
+    "dacite==1.8.1",
+    "omegaconf==2.3.0",] 
+
+[tool.setuptools.packages.find]
+include = ["openhype*"]
+
+# register the entry point of your new method here:
+[project.entry-points.'nerfstudio.method_configs']
+openhype = 'openhype.openhype_nerf.openhypenerf.openhypenerf_config:openhype_method'
