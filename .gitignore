@@ -210,4 +210,4 @@ __marimo__/
 openhype_output/
 wandb/
 launcher_log*
-data
+/data
